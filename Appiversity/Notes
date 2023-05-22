@@ -1,0 +1,18 @@
+
+Architecture: MVVM-C
+
+
+Dependencies:
+    Firebase crashylitics
+    Realtime Database
+    Firebase Storage
+    
+
+Techs:
+Core Data
+Keychain
+
+
+
+
+

@@ -16,6 +16,8 @@
 		F3DA65E22A1B759E00DA81E6 /* AppiversityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65E12A1B759E00DA81E6 /* AppiversityTests.swift */; };
 		F3DA65EC2A1B759E00DA81E6 /* AppiversityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65EB2A1B759E00DA81E6 /* AppiversityUITests.swift */; };
 		F3DA65EE2A1B759E00DA81E6 /* AppiversityUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65ED2A1B759E00DA81E6 /* AppiversityUITestsLaunchTests.swift */; };
+		F3DA65FB2A1B906500DA81E6 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = F3DA65FA2A1B906500DA81E6 /* Notes */; };
+		F3DA66032A1B9DE400DA81E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA66022A1B9DE400DA81E6 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		F3DA65E72A1B759E00DA81E6 /* AppiversityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppiversityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DA65EB2A1B759E00DA81E6 /* AppiversityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiversityUITests.swift; sourceTree = "<group>"; };
 		F3DA65ED2A1B759E00DA81E6 /* AppiversityUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiversityUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F3DA65FA2A1B906500DA81E6 /* Notes */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
+		F3DA66022A1B9DE400DA81E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,12 @@
 		F3DA65C92A1B759A00DA81E6 /* Appiversity */ = {
 			isa = PBXGroup;
 			children = (
+				F3DA66012A1B9DCD00DA81E6 /* Utils */,
+				F3DA65FC2A1B9CFB00DA81E6 /* Network */,
+				F3DA66002A1B9D0B00DA81E6 /* Model */,
+				F3DA65FF2A1B9D0600DA81E6 /* View */,
+				F3DA65FE2A1B9D0300DA81E6 /* ViewModel */,
+				F3DA65FD2A1B9CFF00DA81E6 /* Coordinator */,
 				F3DA65CA2A1B759A00DA81E6 /* AppDelegate.swift */,
 				F3DA65CC2A1B759A00DA81E6 /* SceneDelegate.swift */,
 				F3DA65CE2A1B759A00DA81E6 /* ViewController.swift */,
@@ -106,6 +116,7 @@
 				F3DA65D32A1B759D00DA81E6 /* Assets.xcassets */,
 				F3DA65D52A1B759D00DA81E6 /* LaunchScreen.storyboard */,
 				F3DA65D82A1B759D00DA81E6 /* Info.plist */,
+				F3DA65FA2A1B906500DA81E6 /* Notes */,
 			);
 			path = Appiversity;
 			sourceTree = "<group>";
@@ -125,6 +136,49 @@
 				F3DA65ED2A1B759E00DA81E6 /* AppiversityUITestsLaunchTests.swift */,
 			);
 			path = AppiversityUITests;
+			sourceTree = "<group>";
+		};
+		F3DA65FC2A1B9CFB00DA81E6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F3DA65FD2A1B9CFF00DA81E6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F3DA65FE2A1B9D0300DA81E6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3DA65FF2A1B9D0600DA81E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3DA66002A1B9D0B00DA81E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F3DA66012A1B9DCD00DA81E6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F3DA66022A1B9DE400DA81E6 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +287,7 @@
 			files = (
 				F3DA65D72A1B759D00DA81E6 /* LaunchScreen.storyboard in Resources */,
 				F3DA65D42A1B759D00DA81E6 /* Assets.xcassets in Resources */,
+				F3DA65FB2A1B906500DA81E6 /* Notes in Resources */,
 				F3DA65D22A1B759A00DA81E6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +316,7 @@
 				F3DA65CF2A1B759A00DA81E6 /* ViewController.swift in Sources */,
 				F3DA65CB2A1B759A00DA81E6 /* AppDelegate.swift in Sources */,
 				F3DA65CD2A1B759A00DA81E6 /* SceneDelegate.swift in Sources */,
+				F3DA66032A1B9DE400DA81E6 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
