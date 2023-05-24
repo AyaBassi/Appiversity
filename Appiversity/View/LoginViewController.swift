@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
     
     private lazy var dontHaveAccountButton: UIButton = {
             let button = UIButton(type: .system)
-            let attributedTitle = NSMutableAttributedString(string: "Don't have account yet? ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            let attributedTitle = NSMutableAttributedString(string: "Don't have an account yet? ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
             attributedTitle.append(NSAttributedString(string: "Register", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.orange]))
             
             button.addTarget(self, action: #selector(handleDontHaveAccountButton), for: .touchUpInside)
@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func handleDontHaveAccountButton(){
-        print(1234)
+        LoginVCCoordinator.shared.goToRegistrationScreen()
     }
     
     // MARK: - HELPER FUNCTIONS

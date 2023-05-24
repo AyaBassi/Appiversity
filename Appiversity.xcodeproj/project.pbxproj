@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F35204BD2A1E08530039ADE3 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204BC2A1E08530039ADE3 /* RegistrationViewController.swift */; };
 		F3DA65CB2A1B759A00DA81E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CA2A1B759A00DA81E6 /* AppDelegate.swift */; };
 		F3DA65CD2A1B759A00DA81E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CC2A1B759A00DA81E6 /* SceneDelegate.swift */; };
 		F3DA65CF2A1B759A00DA81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CE2A1B759A00DA81E6 /* LoginViewController.swift */; };
@@ -20,7 +21,7 @@
 		F3DA66032A1B9DE400DA81E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA66022A1B9DE400DA81E6 /* Extensions.swift */; };
 		F3DA66052A1BA35500DA81E6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA66042A1BA35500DA81E6 /* MainCoordinator.swift */; };
 		F3DA66072A1BA38400DA81E6 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA66062A1BA38400DA81E6 /* CoordinatorProtocol.swift */; };
-		F3DA66092A1BBF7200DA81E6 /* HomeViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA66082A1BBF7200DA81E6 /* HomeViewCoordinator.swift */; };
+		F3DA66092A1BBF7200DA81E6 /* LoginVCCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA66082A1BBF7200DA81E6 /* LoginVCCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F35204BC2A1E08530039ADE3 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F3DA65C72A1B759A00DA81E6 /* Appiversity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appiversity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DA65CA2A1B759A00DA81E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3DA65CC2A1B759A00DA81E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		F3DA66022A1B9DE400DA81E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F3DA66042A1BA35500DA81E6 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F3DA66062A1BA38400DA81E6 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
-		F3DA66082A1BBF7200DA81E6 /* HomeViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCoordinator.swift; sourceTree = "<group>"; };
+		F3DA66082A1BBF7200DA81E6 /* LoginVCCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +157,7 @@
 			children = (
 				F3DA66062A1BA38400DA81E6 /* CoordinatorProtocol.swift */,
 				F3DA66042A1BA35500DA81E6 /* MainCoordinator.swift */,
-				F3DA66082A1BBF7200DA81E6 /* HomeViewCoordinator.swift */,
+				F3DA66082A1BBF7200DA81E6 /* LoginVCCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				F3DA65CE2A1B759A00DA81E6 /* LoginViewController.swift */,
+				F35204BC2A1E08530039ADE3 /* RegistrationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,7 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3DA65CF2A1B759A00DA81E6 /* LoginViewController.swift in Sources */,
-				F3DA66092A1BBF7200DA81E6 /* HomeViewCoordinator.swift in Sources */,
+				F3DA66092A1BBF7200DA81E6 /* LoginVCCoordinator.swift in Sources */,
+				F35204BD2A1E08530039ADE3 /* RegistrationViewController.swift in Sources */,
 				F3DA65CB2A1B759A00DA81E6 /* AppDelegate.swift in Sources */,
 				F3DA66072A1BA38400DA81E6 /* CoordinatorProtocol.swift in Sources */,
 				F3DA65CD2A1B759A00DA81E6 /* SceneDelegate.swift in Sources */,

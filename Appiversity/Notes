@@ -8,9 +8,21 @@ Dependencies:
     Firebase Storage
     
 
+
+
+
 Techs:
 Core Data
 Keychain
+
+
+
+
+
+
+Possible Things to do:
+
+- Put all strings like button titles and so on in NSLocalStrings and possibly have them in one file for ease of access
 
 
 
