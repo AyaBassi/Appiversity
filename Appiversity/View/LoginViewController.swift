@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class LoginViewController: UIViewController {
     
     // MARK: - PROPERTIES
+    lazy var loginButtonTitle:String? = "Log in"
+    
+    lazy var topPaddingForEmailAndPasswordStack = view.frame.height / 7
     
     private let titleLabel : UILabel = {
         let label = UILabel()
@@ -18,7 +22,6 @@ class LoginViewController: UIViewController {
         label.textColor = .lightGray
         return label
     }()
-    
     
     private lazy var emailContainerView: UIView = {
         let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "emailImage").withTintColor(.lightGray), textField: emailTextField)
@@ -42,10 +45,9 @@ class LoginViewController: UIViewController {
                                        isSecureTextEntry: true)
     }()
     
-    
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Log In", for: .normal)
+        button.setTitle(loginButtonTitle, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
@@ -72,6 +74,8 @@ class LoginViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         
+        removeNavigationBar()
+        
         setupLoginTitle()
         
         add_Email_Password_Container_And_LoginButtonToView()
@@ -79,10 +83,13 @@ class LoginViewController: UIViewController {
         addDontHaveAccountButtonToView()
     }
     
+    
     // MARK: - Selectors
+    
     
     @objc func handleLogin() {
         print(1234)
+        
     }
     
     @objc func handleDontHaveAccountButton(){
@@ -90,6 +97,10 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - HELPER FUNCTIONS
+    
+    private func removeNavigationBar(){
+        navigationController?.navigationBar.isHidden = true
+    }
     
     private func setupLoginTitle(){
         view.addSubview(titleLabel)
@@ -109,12 +120,12 @@ class LoginViewController: UIViewController {
         stack.anchor(top: titleLabel.bottomAnchor,
                      left: view.leftAnchor,
                      right: view.rightAnchor,
-                     paddingTop: 80,
+                     paddingTop: topPaddingForEmailAndPasswordStack,
                      paddingLeft: leftOrRightPadding,
                      paddingRight: leftOrRightPadding)
         
         view.addSubview(loginButton)
-        loginButton.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: view.frame.height / 10, paddingLeft: leftOrRightPadding, paddingRight: leftOrRightPadding, height: 50)
+        loginButton.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: view.frame.height / 10, paddingLeft: leftOrRightPadding,paddingRight: leftOrRightPadding, height: 50)
     }
     
     private func addDontHaveAccountButtonToView() {
@@ -124,3 +135,10 @@ class LoginViewController: UIViewController {
         }
 }
 
+
+
+//Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+//  AnalyticsParameterItemID: "id-\(loginButtonTitle!)",
+//  AnalyticsParameterItemName: loginButtonTitle!,
+//  AnalyticsParameterContentType: "cont",
+//])

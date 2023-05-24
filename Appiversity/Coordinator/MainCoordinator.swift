@@ -12,7 +12,8 @@ class MainCoordinator :  CoordinatorProtocol{
     private init(){}
     
     var childCoordinators: [ChildCoordinatorProtocol] = [
-        LoginVCCoordinator.shared.self
+        LoginVCCoordinator.shared,
+        RegistrationVCCoordinator.shared
     ]
     var navigationController: UINavigationController = UINavigationController()
     

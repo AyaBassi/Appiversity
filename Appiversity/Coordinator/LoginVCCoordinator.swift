@@ -12,7 +12,6 @@ class LoginVCCoordinator : ChildCoordinatorProtocol {
     private init(){}
     var navigationController: UINavigationController?
     
-    
     func goToRegistrationScreen(){
         DispatchQueue.main.async {
             let registrationVC = RegistrationViewController()

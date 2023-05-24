@@ -92,6 +92,16 @@ class RegistrationViewController: UIViewController {
         return button
     }()
     
+    private lazy var alreadyHaveAnAccountButton: UIButton = {
+            let button = UIButton(type: .system)
+            let attributedTitle = NSMutableAttributedString(string: "Already have an account? ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            attributedTitle.append(NSAttributedString(string: "Login", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.orange]))
+            button.setAttributedTitle(attributedTitle, for: .normal)
+            button.addTarget(self, action: #selector(handleAlreadyHaveAnAccountButton), for: .touchUpInside)
+            
+            return button
+        }()
+    
     
     // MARK: - Lifecycle
     
@@ -101,6 +111,7 @@ class RegistrationViewController: UIViewController {
         
         setupLoginTitle()
         add_Email_Password_RepeatPassword_TextFields_And_SquareAgreementCheckBox_AndTermsOfService_And_RegisterButtonToView()
+        addAlreadyHaveAnAccountButtonToView()
     }
     
     // MARK: - Selectors
@@ -111,10 +122,13 @@ class RegistrationViewController: UIViewController {
     @objc private func handleSquareTapped(){
         print("Change square to green")
         
-        
     }
     @objc private func handleTermsOfServiceTapped() {
         print("handleTermsOfServiceTapped")
+    }
+    
+    @objc func handleAlreadyHaveAnAccountButton(){
+        RegistrationVCCoordinator.shared.goToLoginScreen()
     }
     
     // MARK: - Helper functions
@@ -153,7 +167,11 @@ class RegistrationViewController: UIViewController {
         registerButton.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: view.frame.height / 10, paddingLeft: leftOrRightPadding, paddingRight: leftOrRightPadding, height: 50)
     }
 
-    
+    private func addAlreadyHaveAnAccountButtonToView() {
+            view.addSubview(alreadyHaveAnAccountButton)
+        alreadyHaveAnAccountButton.centerX(inView: view)
+        alreadyHaveAnAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
+        }
     
 
 }

@@ -49,6 +49,7 @@ extension UIView {
         
         if let left = left {
             leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
+            
         }
         
         if let bottom = bottom {
