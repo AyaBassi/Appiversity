@@ -17,7 +17,7 @@ class MainCoordinator :  CoordinatorProtocol{
     var navigationController: UINavigationController = UINavigationController()
     
     func startMainCoordinator() {
-        let vc = ViewController()
+        let vc = LoginViewController()
         navigationController.pushViewController(vc, animated: true)
         
         // set navigationController for all child cordinators
