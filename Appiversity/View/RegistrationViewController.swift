@@ -54,6 +54,33 @@ class RegistrationViewController: UIViewController {
         return view
     }()
     
+    private lazy var squareAgreementButton : UIButton = {
+        let button = UIButton(type: .system)
+        guard let emptySquareImage = UIImage(systemName: "square") else {return button}
+        button.setImage(emptySquareImage.withTintColor(.lightGray, renderingMode: .alwaysOriginal), for: .normal)
+        button.addTarget(self , action: #selector(handleSquareTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    let agreementLabel : UILabel = {
+        let label = UILabel()
+        label.text = "I agree all statements in "
+        label.textColor = .systemGray
+        return label
+    }()
+    
+    private lazy var termsOfServiceButton : UIButton = {
+        let button = UIButton(type: .system)
+        let attributedTitle = NSAttributedString(string: "terms of service", attributes: [
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor : UIColor.orange,
+            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
+        ])
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self , action: #selector(handleTermsOfServiceTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
@@ -73,13 +100,21 @@ class RegistrationViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         setupLoginTitle()
-        add_Email_Password_RepeatPassword_Container_And_RegisterButtonToView()
+        add_Email_Password_RepeatPassword_TextFields_And_SquareAgreementCheckBox_AndTermsOfService_And_RegisterButtonToView()
     }
     
     // MARK: - Selectors
     
     @objc private func handleRegister() {
         print(1234)
+    }
+    @objc private func handleSquareTapped(){
+        print("Change square to green")
+        
+        
+    }
+    @objc private func handleTermsOfServiceTapped() {
+        print("handleTermsOfServiceTapped")
     }
     
     // MARK: - Helper functions
@@ -89,7 +124,8 @@ class RegistrationViewController: UIViewController {
         titleLabel.centerX(inView: view)
     }
     
-    private func add_Email_Password_RepeatPassword_Container_And_RegisterButtonToView(){
+    private func add_Email_Password_RepeatPassword_TextFields_And_SquareAgreementCheckBox_AndTermsOfService_And_RegisterButtonToView(){
+        // email, password and repeatpassword in a Vertical stack
         let stack = UIStackView(arrangedSubviews: [emailContainerView,
                                                    passwordContainerView,
                                                    repeatPasswordContainerView])
@@ -97,18 +133,27 @@ class RegistrationViewController: UIViewController {
         stack.distribution = .fill
         stack.spacing = 16
         view.addSubview(stack)
-        
+        let leftOrRightPadding : Double = 25
         stack.anchor(top: titleLabel.bottomAnchor,
                      left: view.leftAnchor,
                      right: view.rightAnchor,
                      paddingTop: 80,
-                     paddingLeft: 20,
-                     paddingRight: 20)
+                     paddingLeft: leftOrRightPadding,
+                     paddingRight: leftOrRightPadding)
         
+        // squareAgreementButton, agreementLabel, termsOfServiceButton in a HStack
+        let hStack = UIStackView(arrangedSubviews: [squareAgreementButton,agreementLabel,termsOfServiceButton])
+        hStack.axis = .horizontal
+        hStack.distribution = .fill
+        hStack.spacing = 2
+        view.addSubview(hStack)
+        hStack.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 25, paddingLeft: 25, paddingRight: 25)
+
         view.addSubview(registerButton)
-        registerButton.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: view.frame.height / 10, paddingLeft: 22, paddingRight: 22, height: 50)
+        registerButton.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: view.frame.height / 10, paddingLeft: leftOrRightPadding, paddingRight: leftOrRightPadding, height: 50)
     }
 
+    
     
 
 }

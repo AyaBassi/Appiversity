@@ -58,9 +58,9 @@ class LoginViewController: UIViewController {
             let button = UIButton(type: .system)
             let attributedTitle = NSMutableAttributedString(string: "Don't have an account yet? ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
             attributedTitle.append(NSAttributedString(string: "Register", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.orange]))
-            
-            button.addTarget(self, action: #selector(handleDontHaveAccountButton), for: .touchUpInside)
             button.setAttributedTitle(attributedTitle, for: .normal)
+            button.addTarget(self, action: #selector(handleDontHaveAccountButton), for: .touchUpInside)
+            
             return button
         }()
     
@@ -81,11 +81,11 @@ class LoginViewController: UIViewController {
     
     // MARK: - Selectors
     
-    @objc private func handleLogin() {
+    @objc func handleLogin() {
         print(1234)
     }
     
-    @objc private func handleDontHaveAccountButton(){
+    @objc func handleDontHaveAccountButton(){
         LoginVCCoordinator.shared.goToRegistrationScreen()
     }
     
@@ -104,15 +104,17 @@ class LoginViewController: UIViewController {
         stack.distribution = .fill
         stack.spacing = 16
         view.addSubview(stack)
+        
+        let leftOrRightPadding : Double = 25
         stack.anchor(top: titleLabel.bottomAnchor,
                      left: view.leftAnchor,
                      right: view.rightAnchor,
                      paddingTop: 80,
-                     paddingLeft: 20,
-                     paddingRight: 20)
+                     paddingLeft: leftOrRightPadding,
+                     paddingRight: leftOrRightPadding)
         
         view.addSubview(loginButton)
-        loginButton.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: view.frame.height / 10, paddingLeft: 22, paddingRight: 22, height: 50)
+        loginButton.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: view.frame.height / 10, paddingLeft: leftOrRightPadding, paddingRight: leftOrRightPadding, height: 50)
     }
     
     private func addDontHaveAccountButtonToView() {

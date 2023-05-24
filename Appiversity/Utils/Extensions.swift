@@ -16,7 +16,7 @@ extension UIView {
         imageView.alpha = 0.87
         view.addSubview(imageView)
         imageView.centerY(inView: view)
-        imageView.anchor(left: view.leftAnchor, paddingLeft: 8,width: 24,height: 24)
+        imageView.anchor(left: view.leftAnchor,width: 24,height: 24)
         
         view.addSubview(textField)
         textField.centerY(inView: view)
@@ -25,7 +25,7 @@ extension UIView {
         let separatorView = UIView()
         separatorView.backgroundColor = .lightGray
         view.addSubview(separatorView)
-        separatorView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 8,height: 0.75)
+        separatorView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor,height: 0.75)
         
         return view
     }
