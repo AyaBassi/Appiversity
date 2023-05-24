@@ -81,11 +81,11 @@ class LoginViewController: UIViewController {
     
     // MARK: - Selectors
     
-    @objc func handleLogin() {
+    @objc private func handleLogin() {
         print(1234)
     }
     
-    @objc func handleDontHaveAccountButton(){
+    @objc private func handleDontHaveAccountButton(){
         LoginVCCoordinator.shared.goToRegistrationScreen()
     }
     
