@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class RegistrationViewController: UIViewController {
     
     // MARK: - Properties
@@ -120,15 +120,19 @@ class RegistrationViewController: UIViewController {
     @objc private func handleRegister() {
         
         // 1. Check if email format is valid, check if password is more than 6 characters check if repeat password is same as password
-       
+        // 2. also check if terms and condition button is checked
+        
+        
         if regVM.isValidRegistration(email: emailTextField.text, password: passwordTextField.text, repeatPassword: repeatPasswordTextField.text,termsAndAgreementBoxIsChecked) {
-            print("is valid")
+            // 3. once all above conditions are satisfied then create user with firebase authentication
+            // 4. And if registration is successful then go to to homescreen
+
+            
         } else {
             print("Registration is not valid")
         }
-        // 2. also check if terms and condition button is checked
-        // 3. once all above conditions are satisfied then create user with firebase authentication
-        // 4. And if registration is successful then go to to homescreen
+        
+        
     
     }
     @objc private func handleSquareAgreementButtonTapped(){

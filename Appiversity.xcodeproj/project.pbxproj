@@ -17,6 +17,7 @@
 		F35204CE2A1E65D80039ADE3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F35204CD2A1E65D80039ADE3 /* FirebaseStorage */; };
 		F35204D32A20E2E60039ADE3 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D22A20E2E60039ADE3 /* RegistrationViewModel.swift */; };
 		F35204D52A20F4600039ADE3 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */; };
+		F35204D72A2114C50039ADE3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D62A2114C50039ADE3 /* Service.swift */; };
 		F3DA65CB2A1B759A00DA81E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CA2A1B759A00DA81E6 /* AppDelegate.swift */; };
 		F3DA65CD2A1B759A00DA81E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CC2A1B759A00DA81E6 /* SceneDelegate.swift */; };
 		F3DA65CF2A1B759A00DA81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CE2A1B759A00DA81E6 /* LoginViewController.swift */; };
@@ -56,6 +57,7 @@
 		F35204C22A1E64C70039ADE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F35204D22A20E2E60039ADE3 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
+		F35204D62A2114C50039ADE3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F3DA65C72A1B759A00DA81E6 /* Appiversity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appiversity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DA65CA2A1B759A00DA81E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3DA65CC2A1B759A00DA81E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		F3DA65FC2A1B9CFB00DA81E6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F35204D62A2114C50039ADE3 /* Service.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				F35204D32A20E2E60039ADE3 /* RegistrationViewModel.swift in Sources */,
 				F3DA66072A1BA38400DA81E6 /* CoordinatorProtocol.swift in Sources */,
 				F3DA65CD2A1B759A00DA81E6 /* SceneDelegate.swift in Sources */,
+				F35204D72A2114C50039ADE3 /* Service.swift in Sources */,
 				F3DA66052A1BA35500DA81E6 /* MainCoordinator.swift in Sources */,
 				F3DA66032A1B9DE400DA81E6 /* Extensions.swift in Sources */,
 			);
@@ -652,7 +656,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Appiversity.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Appiversity";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Appiversity.app/Appiversity";
 			};
 			name = Debug;
 		};
@@ -671,7 +675,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Appiversity.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Appiversity";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Appiversity.app/Appiversity";
 			};
 			name = Release;
 		};

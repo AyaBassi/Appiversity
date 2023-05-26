@@ -33,6 +33,15 @@ class RegistrationViewModel {
         return isValid
     }
     
+    func registerUser(withEmail email:String, password:String) async{
+        do {
+            let result = try await Service.shared.createUser(withEmail: email, password: password)
+        }catch {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     func setColourAndImageForCheckBox(isChecked:Bool) -> (systemImageName:String, colorOfCheckBox:UIColor){
         isChecked == true ? ( "checkmark.square",.systemMint) : ( "square" , .lightGray)
     }
