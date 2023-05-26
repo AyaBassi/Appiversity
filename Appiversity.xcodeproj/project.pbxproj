@@ -15,6 +15,8 @@
 		F35204CA2A1E65D70039ADE3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F35204C92A1E65D70039ADE3 /* FirebaseCrashlytics */; };
 		F35204CC2A1E65D70039ADE3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F35204CB2A1E65D70039ADE3 /* FirebaseDatabase */; };
 		F35204CE2A1E65D80039ADE3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F35204CD2A1E65D80039ADE3 /* FirebaseStorage */; };
+		F35204D32A20E2E60039ADE3 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D22A20E2E60039ADE3 /* RegistrationViewModel.swift */; };
+		F35204D52A20F4600039ADE3 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */; };
 		F3DA65CB2A1B759A00DA81E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CA2A1B759A00DA81E6 /* AppDelegate.swift */; };
 		F3DA65CD2A1B759A00DA81E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CC2A1B759A00DA81E6 /* SceneDelegate.swift */; };
 		F3DA65CF2A1B759A00DA81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CE2A1B759A00DA81E6 /* LoginViewController.swift */; };
@@ -52,6 +54,8 @@
 		F35204BC2A1E08530039ADE3 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F35204BE2A1E357A0039ADE3 /* RegistrationVCCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVCCoordinator.swift; sourceTree = "<group>"; };
 		F35204C22A1E64C70039ADE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F35204D22A20E2E60039ADE3 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
 		F3DA65C72A1B759A00DA81E6 /* Appiversity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appiversity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DA65CA2A1B759A00DA81E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3DA65CC2A1B759A00DA81E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F35204D02A20DB240039ADE3 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F3DA65CE2A1B759A00DA81E6 /* LoginViewController.swift */,
+				F35204BC2A1E08530039ADE3 /* RegistrationViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		F35204D12A20DB380039ADE3 /* AuthCoordinators */ = {
+			isa = PBXGroup;
+			children = (
+				F3DA66082A1BBF7200DA81E6 /* LoginVCCoordinator.swift */,
+				F35204BE2A1E357A0039ADE3 /* RegistrationVCCoordinator.swift */,
+			);
+			path = AuthCoordinators;
+			sourceTree = "<group>";
+		};
 		F3DA65BE2A1B759A00DA81E6 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				F3DA65E12A1B759E00DA81E6 /* AppiversityTests.swift */,
+				F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */,
 			);
 			path = AppiversityTests;
 			sourceTree = "<group>";
@@ -172,8 +195,7 @@
 			children = (
 				F3DA66062A1BA38400DA81E6 /* CoordinatorProtocol.swift */,
 				F3DA66042A1BA35500DA81E6 /* MainCoordinator.swift */,
-				F3DA66082A1BBF7200DA81E6 /* LoginVCCoordinator.swift */,
-				F35204BE2A1E357A0039ADE3 /* RegistrationVCCoordinator.swift */,
+				F35204D12A20DB380039ADE3 /* AuthCoordinators */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -181,6 +203,7 @@
 		F3DA65FE2A1B9D0300DA81E6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F35204D22A20E2E60039ADE3 /* RegistrationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -188,8 +211,7 @@
 		F3DA65FF2A1B9D0600DA81E6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3DA65CE2A1B759A00DA81E6 /* LoginViewController.swift */,
-				F35204BC2A1E08530039ADE3 /* RegistrationViewController.swift */,
+				F35204D02A20DB240039ADE3 /* Authentication */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,6 +402,7 @@
 				F3DA66092A1BBF7200DA81E6 /* LoginVCCoordinator.swift in Sources */,
 				F35204BD2A1E08530039ADE3 /* RegistrationViewController.swift in Sources */,
 				F3DA65CB2A1B759A00DA81E6 /* AppDelegate.swift in Sources */,
+				F35204D32A20E2E60039ADE3 /* RegistrationViewModel.swift in Sources */,
 				F3DA66072A1BA38400DA81E6 /* CoordinatorProtocol.swift in Sources */,
 				F3DA65CD2A1B759A00DA81E6 /* SceneDelegate.swift in Sources */,
 				F3DA66052A1BA35500DA81E6 /* MainCoordinator.swift in Sources */,
@@ -391,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35204D52A20F4600039ADE3 /* RegistrationViewModelTests.swift in Sources */,
 				F3DA65E22A1B759E00DA81E6 /* AppiversityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,7 +593,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +623,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

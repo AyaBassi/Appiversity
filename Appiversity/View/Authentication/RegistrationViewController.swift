@@ -8,9 +8,10 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
-
     
     // MARK: - Properties
+    let regVM = RegistrationViewModel()
+    var termsAndAgreementBoxIsChecked = false
     
     private let titleLabel : UILabel = {
         let label = UILabel()
@@ -58,7 +59,7 @@ class RegistrationViewController: UIViewController {
         let button = UIButton(type: .system)
         guard let emptySquareImage = UIImage(systemName: "square") else {return button}
         button.setImage(emptySquareImage.withTintColor(.lightGray, renderingMode: .alwaysOriginal), for: .normal)
-        button.addTarget(self , action: #selector(handleSquareTapped), for: .touchUpInside)
+        button.addTarget(self , action: #selector(handleSquareAgreementButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -117,12 +118,25 @@ class RegistrationViewController: UIViewController {
     // MARK: - Selectors
     
     @objc private func handleRegister() {
-        print(1234)
-    }
-    @objc private func handleSquareTapped(){
-        print("Change square to green")
         
+        // 1. Check if email format is valid, check if password is more than 6 characters check if repeat password is same as password
+       
+        if regVM.isValidRegistration(email: emailTextField.text, password: passwordTextField.text, repeatPassword: repeatPasswordTextField.text,termsAndAgreementBoxIsChecked) {
+            print("is valid")
+        } else {
+            print("Registration is not valid")
+        }
+        // 2. also check if terms and condition button is checked
+        // 3. once all above conditions are satisfied then create user with firebase authentication
+        // 4. And if registration is successful then go to to homescreen
+    
     }
+    @objc private func handleSquareAgreementButtonTapped(){
+        termsAndAgreementBoxIsChecked.toggle()
+        let result = regVM.setColourAndImageForCheckBox(isChecked: termsAndAgreementBoxIsChecked)
+        squareAgreementButton.setImage(UIImage(systemName: result.systemImageName)?.withTintColor(result.colorOfCheckBox, renderingMode: .alwaysOriginal), for: .normal)
+    }
+    
     @objc private func handleTermsOfServiceTapped() {
         print("handleTermsOfServiceTapped")
     }
