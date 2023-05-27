@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import FirebaseAuth
+
 class RegistrationViewModel {
 
+    
     func isValidRegistration(email:String?,password:String?,repeatPassword:String?, _ termsAndAgreementBoxIsChecked:Bool) -> Bool {
         var isValid = false
         
@@ -33,13 +36,14 @@ class RegistrationViewModel {
         return isValid
     }
     
-    func registerUser(withEmail email:String, password:String) async{
+    func registerUser(withEmail email:String?, password:String?) async {
+        guard let email = email , let password = password else {return }
         do {
             let result = try await Service.shared.createUser(withEmail: email, password: password)
+            print(result.user.uid)
         }catch {
-            print(error.localizedDescription)
+            print("Failed to register user with error: ",error.localizedDescription)
         }
-        
     }
     
     func setColourAndImageForCheckBox(isChecked:Bool) -> (systemImageName:String, colorOfCheckBox:UIColor){

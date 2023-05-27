@@ -10,7 +10,7 @@ import FirebaseAuth
 class RegistrationViewController: UIViewController {
     
     // MARK: - Properties
-    let regVM = RegistrationViewModel()
+    let registrationViewModel = RegistrationViewModel()
     var termsAndAgreementBoxIsChecked = false
     
     private let titleLabel : UILabel = {
@@ -113,33 +113,38 @@ class RegistrationViewController: UIViewController {
         setupLoginTitle()
         add_Email_Password_RepeatPassword_TextFields_And_SquareAgreementCheckBox_AndTermsOfService_And_RegisterButtonToView()
         addAlreadyHaveAnAccountButtonToView()
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("No user logged in")
+            return
+        }
+        print(uid)
     }
     
     // MARK: - Selectors
     
     @objc private func handleRegister() {
-        
-        // 1. Check if email format is valid, check if password is more than 6 characters check if repeat password is same as password
-        // 2. also check if terms and condition button is checked
-        
-        
-        if regVM.isValidRegistration(email: emailTextField.text, password: passwordTextField.text, repeatPassword: repeatPasswordTextField.text,termsAndAgreementBoxIsChecked) {
+        print("here")
+        if registrationViewModel.isValidRegistration(email: emailTextField.text, password: passwordTextField.text, repeatPassword: repeatPasswordTextField.text,termsAndAgreementBoxIsChecked) {
             // 3. once all above conditions are satisfied then create user with firebase authentication
+            
+            Task {
+                await registrationViewModel.registerUser(withEmail: emailTextField.text, password: passwordTextField.text)
+            }
+            
             // 4. And if registration is successful then go to to homescreen
 
-            
         } else {
             print("Registration is not valid")
         }
-        
-        
-    
     }
+    
     @objc private func handleSquareAgreementButtonTapped(){
         termsAndAgreementBoxIsChecked.toggle()
-        let result = regVM.setColourAndImageForCheckBox(isChecked: termsAndAgreementBoxIsChecked)
+        let result = registrationViewModel.setColourAndImageForCheckBox(isChecked: termsAndAgreementBoxIsChecked)
         squareAgreementButton.setImage(UIImage(systemName: result.systemImageName)?.withTintColor(result.colorOfCheckBox, renderingMode: .alwaysOriginal), for: .normal)
     }
+    
     
     @objc private func handleTermsOfServiceTapped() {
         print("handleTermsOfServiceTapped")
