@@ -8,7 +8,7 @@
 import Foundation
 class HomeVCViewModel {
     
-    func userSignedOut(apiService: LoginLogOutProtocol)-> Bool{
+    func userSignedOut(apiService: ServiceProtocol)-> Bool{
         do {
             try apiService.signUserOut()
             return true

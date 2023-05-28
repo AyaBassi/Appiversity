@@ -22,6 +22,8 @@
 		F3AFB4572A22AED400803AEB /* HomeVCCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AFB4562A22AED400803AEB /* HomeVCCoordinator.swift */; };
 		F3B08C3D2A237C1F00E813E2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B08C3C2A237C1F00E813E2 /* LoginViewModel.swift */; };
 		F3B08C3F2A23817E00E813E2 /* HomeVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B08C3E2A23817E00E813E2 /* HomeVCViewModel.swift */; };
+		F3B08C412A238BCC00E813E2 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B08C402A238BCC00E813E2 /* ServiceProtocol.swift */; };
+		F3B08C432A23ACEB00E813E2 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B08C422A23ACEB00E813E2 /* BookModel.swift */; };
 		F3DA65CB2A1B759A00DA81E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CA2A1B759A00DA81E6 /* AppDelegate.swift */; };
 		F3DA65CD2A1B759A00DA81E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CC2A1B759A00DA81E6 /* SceneDelegate.swift */; };
 		F3DA65CF2A1B759A00DA81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA65CE2A1B759A00DA81E6 /* LoginViewController.swift */; };
@@ -66,6 +68,8 @@
 		F3AFB4562A22AED400803AEB /* HomeVCCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCCoordinator.swift; sourceTree = "<group>"; };
 		F3B08C3C2A237C1F00E813E2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F3B08C3E2A23817E00E813E2 /* HomeVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCViewModel.swift; sourceTree = "<group>"; };
+		F3B08C402A238BCC00E813E2 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		F3B08C422A23ACEB00E813E2 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		F3DA65C72A1B759A00DA81E6 /* Appiversity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appiversity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DA65CA2A1B759A00DA81E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3DA65CC2A1B759A00DA81E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 		F3DA65FC2A1B9CFB00DA81E6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F3B08C402A238BCC00E813E2 /* ServiceProtocol.swift */,
 				F35204D62A2114C50039ADE3 /* Service.swift */,
 			);
 			path = Network;
@@ -242,6 +247,7 @@
 		F3DA66002A1B9D0B00DA81E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F3B08C422A23ACEB00E813E2 /* BookModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,6 +429,7 @@
 				F3DA65CF2A1B759A00DA81E6 /* LoginViewController.swift in Sources */,
 				F35204BF2A1E357A0039ADE3 /* RegistrationVCCoordinator.swift in Sources */,
 				F3DA66092A1BBF7200DA81E6 /* LoginVCCoordinator.swift in Sources */,
+				F3B08C412A238BCC00E813E2 /* ServiceProtocol.swift in Sources */,
 				F35204BD2A1E08530039ADE3 /* RegistrationViewController.swift in Sources */,
 				F3DA65CB2A1B759A00DA81E6 /* AppDelegate.swift in Sources */,
 				F3AFB4572A22AED400803AEB /* HomeVCCoordinator.swift in Sources */,
@@ -435,6 +442,7 @@
 				F3B08C3F2A23817E00E813E2 /* HomeVCViewModel.swift in Sources */,
 				F3DA66032A1B9DE400DA81E6 /* Extensions.swift in Sources */,
 				F3AFB4552A22ACF800803AEB /* HomeViewController.swift in Sources */,
+				F3B08C432A23ACEB00E813E2 /* BookModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

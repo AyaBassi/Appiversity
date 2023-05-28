@@ -8,13 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-
-protocol LoginLogOutProtocol {
-    func signUserIn(withEmail email: String?, password:String?) async throws -> AuthDataResult?
-    func signUserOut() throws
-}
-
-class Service : LoginLogOutProtocol{
+class Service : ServiceProtocol{
     
     static let shared = Service()
     private init(){}

@@ -9,7 +9,6 @@ import UIKit
 import FirebaseAuth
 
 class RegistrationViewModel {
-
     
     func isValidRegistration(email:String?,password:String?,repeatPassword:String?, _ termsAndAgreementBoxIsChecked:Bool) -> Bool {
         var isValid = false
@@ -36,13 +35,14 @@ class RegistrationViewModel {
         return isValid
     }
     
-    func registerUser(withEmail email:String?, password:String?) async {
-        guard let email = email , let password = password else {return }
+    func registerUser(withEmail email:String?, password:String?, apiService: ServiceProtocol) async -> Bool {
+        guard let email = email , let password = password else {return false }
         do {
-            let result = try await Service.shared.createUser(withEmail: email, password: password)
-            
+            let result = try await apiService.createUser(withEmail: email, password: password)
+            return true
         }catch {
             print("Failed to register user with error: ",error.localizedDescription)
+            return false
         }
     }
     

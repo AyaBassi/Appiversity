@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 class LoginViewModel {
     
-    func logUserIn(withEmail email: String?, password:String?, apiService: LoginLogOutProtocol )async -> User? {
+    func logUserIn(withEmail email: String?, password:String?, apiService: ServiceProtocol )async -> User? {
         guard let email = email , let password = password else { return nil }
         do {
             let result = try await apiService.signUserIn(withEmail: email, password: password)

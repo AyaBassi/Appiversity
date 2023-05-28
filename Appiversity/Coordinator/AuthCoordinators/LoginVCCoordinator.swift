@@ -15,6 +15,7 @@ class LoginVCCoordinator : ChildCoordinatorProtocol {
     func goToRegistrationScreen(){
         DispatchQueue.main.async {
             let registrationVC = RegistrationViewController()
+            
             self.navigationController?.pushViewController(registrationVC, animated: true)
         }
     }

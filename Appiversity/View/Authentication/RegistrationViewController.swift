@@ -109,7 +109,7 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
+        print("registration")
         setupLoginTitle()
         add_Email_Password_RepeatPassword_TextFields_And_SquareAgreementCheckBox_AndTermsOfService_And_RegisterButtonToView()
         addAlreadyHaveAnAccountButtonToView()
@@ -118,18 +118,18 @@ class RegistrationViewController: UIViewController {
     
     // MARK: - Selectors
     
-    @objc private func handleRegister() {
+    @objc func handleRegister() {
         print("here")
-        RegistrationVCCoordinator.shared.dismiss()
         if registrationViewModel.isValidRegistration(email: emailTextField.text, password: passwordTextField.text, repeatPassword: repeatPasswordTextField.text,termsAndAgreementBoxIsChecked) {
             // 3. once all above conditions are satisfied then create user with firebase authentication
             
             Task {
-                await registrationViewModel.registerUser(withEmail: emailTextField.text, password: passwordTextField.text)
+                if await registrationViewModel.registerUser(withEmail: emailTextField.text, password: passwordTextField.text, apiService: Service.shared){
+                    guard let vc = HomeVCCoordinator.shared.navigationController?.viewControllers.first as? HomeViewController else {return}
+                    vc.configureHomeView()
+                    RegistrationVCCoordinator.shared.dismiss()
+                }
             }
-            
-            // 4. And if registration is successful then go to to homescreen
-            
         } else {
             print("Registration is not valid")
         }
