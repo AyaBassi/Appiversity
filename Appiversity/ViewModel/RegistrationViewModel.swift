@@ -40,7 +40,7 @@ class RegistrationViewModel {
         guard let email = email , let password = password else {return }
         do {
             let result = try await Service.shared.createUser(withEmail: email, password: password)
-            print(result.user.uid)
+            
         }catch {
             print("Failed to register user with error: ",error.localizedDescription)
         }

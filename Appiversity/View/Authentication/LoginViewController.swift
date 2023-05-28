@@ -89,7 +89,7 @@ class LoginViewController: UIViewController {
     
     @objc func handleLogin() {
         print(1234)
-        
+        LoginVCCoordinator.shared.dismiss()
     }
     
     @objc func handleDontHaveAccountButton(){
@@ -133,6 +133,10 @@ class LoginViewController: UIViewController {
             dontHaveAccountButton.centerX(inView: view)
             dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
         }
+    
+    deinit{
+        print("Login is Deinit")
+    }
 }
 
 

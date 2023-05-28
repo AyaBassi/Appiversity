@@ -114,17 +114,13 @@ class RegistrationViewController: UIViewController {
         add_Email_Password_RepeatPassword_TextFields_And_SquareAgreementCheckBox_AndTermsOfService_And_RegisterButtonToView()
         addAlreadyHaveAnAccountButtonToView()
         
-        guard let uid = Auth.auth().currentUser?.uid else {
-            print("No user logged in")
-            return
-        }
-        print(uid)
     }
     
     // MARK: - Selectors
     
     @objc private func handleRegister() {
         print("here")
+        RegistrationVCCoordinator.shared.dismiss()
         if registrationViewModel.isValidRegistration(email: emailTextField.text, password: passwordTextField.text, repeatPassword: repeatPasswordTextField.text,termsAndAgreementBoxIsChecked) {
             // 3. once all above conditions are satisfied then create user with firebase authentication
             
@@ -132,8 +128,11 @@ class RegistrationViewController: UIViewController {
                 await registrationViewModel.registerUser(withEmail: emailTextField.text, password: passwordTextField.text)
             }
             
+            
+            
+            
             // 4. And if registration is successful then go to to homescreen
-
+            
         } else {
             print("Registration is not valid")
         }
@@ -148,6 +147,8 @@ class RegistrationViewController: UIViewController {
     
     @objc private func handleTermsOfServiceTapped() {
         print("handleTermsOfServiceTapped")
+        // MARK: - REMOVE ME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Service.shared.signUserOut()
     }
     
     @objc func handleAlreadyHaveAnAccountButton(){
@@ -195,6 +196,5 @@ class RegistrationViewController: UIViewController {
         alreadyHaveAnAccountButton.centerX(inView: view)
         alreadyHaveAnAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
         }
-    
 
 }

@@ -18,4 +18,8 @@ class LoginVCCoordinator : ChildCoordinatorProtocol {
             self.navigationController?.pushViewController(registrationVC, animated: true)
         }
     }
+    
+    func dismiss(){
+        navigationController?.viewControllers.last?.dismiss(animated: true)
+    }
 }

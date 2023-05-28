@@ -15,7 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         MainCoordinator.shared.startMainCoordinator()
-        window?.rootViewController = MainCoordinator.shared.navigationController
+        
+        
+        window?.rootViewController = MainCoordinator.shared.homeNavigationController
         window?.makeKeyAndVisible()
     }
 
