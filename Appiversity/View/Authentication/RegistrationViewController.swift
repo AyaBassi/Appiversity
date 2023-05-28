@@ -128,9 +128,6 @@ class RegistrationViewController: UIViewController {
                 await registrationViewModel.registerUser(withEmail: emailTextField.text, password: passwordTextField.text)
             }
             
-            
-            
-            
             // 4. And if registration is successful then go to to homescreen
             
         } else {
@@ -147,8 +144,7 @@ class RegistrationViewController: UIViewController {
     
     @objc private func handleTermsOfServiceTapped() {
         print("handleTermsOfServiceTapped")
-        // MARK: - REMOVE ME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        Service.shared.signUserOut()
+        
     }
     
     @objc func handleAlreadyHaveAnAccountButton(){

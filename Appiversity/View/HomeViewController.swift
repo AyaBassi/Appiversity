@@ -15,24 +15,41 @@ protocol HomeViewControllerProtocol{
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
+     let homeVCViewModel = HomeVCViewModel()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkIfUserIsLoggedIn() ? configureHomeView() : HomeVCCoordinator.shared.presentLoginViewController()
+
+        checkIfUserIsLoggedIn()
     }
     
     // MARK: - Selectors
+    @objc func handleSignOutButtonTapped(){
+        if homeVCViewModel.userSignedOut(apiService: Service.shared) {
+            HomeVCCoordinator.shared.presentLoginViewController()
+        }
+    }
     
     // MARK: - Helper functions
     
-    func checkIfUserIsLoggedIn() -> Bool{
-        Auth.auth().currentUser == nil ? false : true
+    func checkIfUserIsLoggedIn() {
+        if Auth.auth().currentUser == nil {
+            // show login
+            HomeVCCoordinator.shared.presentLoginViewController()
+        }else {
+            // configure homeView
+            configureHomeView()
+        }
     }
     
     func configureHomeView(){
-        view.backgroundColor = .purple
+        view.backgroundColor = .systemBackground
+        
+        let signOutButton = UIBarButtonItem(title: "Sign out", style: .done, target: self ,
+                                            action: #selector(handleSignOutButtonTapped))
+        self.navigationItem.leftBarButtonItem = signOutButton
     }
 
     

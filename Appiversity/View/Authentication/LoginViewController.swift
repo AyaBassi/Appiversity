@@ -72,6 +72,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTextField.text = "test1@gmail.com"
+        passwordTextField.text = "qqqqqq"
+        
         view.backgroundColor = .systemBackground
         
         removeNavigationBar()
@@ -88,7 +91,17 @@ class LoginViewController: UIViewController {
     
     
     @objc func handleLogin() {
-        print(1234)
+        // log user in
+        Task{
+            guard let user = await LoginViewModel().logUserIn(withEmail: emailTextField.text,
+                                                           password: passwordTextField.text,
+                                                              apiService: Service.shared) else {return}
+            print("user Id: ",user.uid)
+        }
+        
+
+        guard let vc = HomeVCCoordinator.shared.navigationController?.viewControllers.first as? HomeViewController else {return}
+        vc.configureHomeView()
         LoginVCCoordinator.shared.dismiss()
     }
     
