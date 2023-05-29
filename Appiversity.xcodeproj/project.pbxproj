@@ -19,6 +19,7 @@
 		F35204D52A20F4600039ADE3 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */; };
 		F35204D72A2114C50039ADE3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D62A2114C50039ADE3 /* Service.swift */; };
 		F39C0BB32A24CAD400FEBC68 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C0BB22A24CAD400FEBC68 /* NetworkError.swift */; };
+		F39C0BB52A255B4D00FEBC68 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C0BB42A255B4D00FEBC68 /* SwiftUIView.swift */; };
 		F3AFB4552A22ACF800803AEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AFB4542A22ACF800803AEB /* HomeViewController.swift */; };
 		F3AFB4572A22AED400803AEB /* HomeVCCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AFB4562A22AED400803AEB /* HomeVCCoordinator.swift */; };
 		F3B08C3D2A237C1F00E813E2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B08C3C2A237C1F00E813E2 /* LoginViewModel.swift */; };
@@ -68,6 +69,7 @@
 		F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
 		F35204D62A2114C50039ADE3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F39C0BB22A24CAD400FEBC68 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		F39C0BB42A255B4D00FEBC68 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		F3AFB4542A22ACF800803AEB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3AFB4562A22AED400803AEB /* HomeVCCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCCoordinator.swift; sourceTree = "<group>"; };
 		F3B08C3C2A237C1F00E813E2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			children = (
 				F35204D02A20DB240039ADE3 /* Authentication */,
 				F3AFB4542A22ACF800803AEB /* HomeViewController.swift */,
+				F39C0BB42A255B4D00FEBC68 /* SwiftUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				F3DA65CD2A1B759A00DA81E6 /* SceneDelegate.swift in Sources */,
 				F35204D72A2114C50039ADE3 /* Service.swift in Sources */,
 				F3DA66052A1BA35500DA81E6 /* MainCoordinator.swift in Sources */,
+				F39C0BB52A255B4D00FEBC68 /* SwiftUIView.swift in Sources */,
 				F3B08C3F2A23817E00E813E2 /* HomeVCViewModel.swift in Sources */,
 				F3DA66032A1B9DE400DA81E6 /* Extensions.swift in Sources */,
 				F3AFB4552A22ACF800803AEB /* HomeViewController.swift in Sources */,

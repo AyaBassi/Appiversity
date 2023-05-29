@@ -113,8 +113,8 @@ extension UITextField {
 }
 
 extension UIViewController {
-    func showAlert(withErrorDescription errorDescription: String){
-        let alert = UIAlertController(title: "Oops!", message: errorDescription, preferredStyle: .alert)
+    func showAlert(withTitle title:String,withMessage message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
         present(alert, animated: true)
     }

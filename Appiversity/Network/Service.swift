@@ -5,13 +5,15 @@
 //  Created by Payam Karbassi on 26/05/2023.
 //
 
-import Foundation
 import FirebaseAuth
+import FirebaseDatabase
 
 class Service : ServiceProtocol{
     
     static let shared = Service()
     private init(){}
+    
+    // MARK: Authentication
     
     func createUser(withEmail email:String, password:String) async throws -> AuthDataResult{
         do{
@@ -35,14 +37,20 @@ class Service : ServiceProtocol{
         }
     }
     
-    func signUserOut()throws{
-        guard Auth.auth().currentUser != nil else {return}
+    func signUserOut() throws {
         do{
             try Auth.auth().signOut()
             print("user signed out")
         }catch {
-            print("DEBUG: ERROR signing out,\(error.localizedDescription)")
             throw error
         }
     }
+    
+    // MARK: - Fething Data
+    
+    func fetchSubject(completion: @escaping (DataSnapshot)->Void) {
+        ServiceEndPoints.SUBJECTS_REF.observeSingleEvent(of: .value, with: completion)
+    }
 }
+
+

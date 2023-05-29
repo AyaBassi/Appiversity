@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
                     vc.configureHomeView()
                     LoginVCCoordinator.shared.dismiss()
                 case .failure(let customError):
-                    showAlert(withErrorDescription: customError.errorDescription ?? "Something went wrong" )
+                    showAlert(withTitle: "Oops!", withMessage: customError.errorDescription ?? "Something went wrong" )
                 }
             }
         } else {

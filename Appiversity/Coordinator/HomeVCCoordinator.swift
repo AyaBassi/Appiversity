@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 class HomeVCCoordinator: ChildCoordinatorProtocol {
     
     static let shared = HomeVCCoordinator()
@@ -22,5 +23,10 @@ class HomeVCCoordinator: ChildCoordinatorProtocol {
         LoginVCCoordinator.shared.navigationController = authNavigationController
         RegistrationVCCoordinator.shared.navigationController = authNavigationController
         navigationController?.viewControllers.last?.present(authNavigationController, animated: true)
+    }
+    
+    func goToSwiftUIScreen(){
+        let swiftUIScreen = UIHostingController(rootView: SwiftUIView())
+        navigationController?.pushViewController(swiftUIScreen, animated: true)
     }
 }

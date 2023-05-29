@@ -33,8 +33,12 @@ class HomeViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func handleSignOutButtonTapped(){
-        if homeVCViewModel.userSignedOut(apiService: Service.shared) {
+        let signOutResult = homeVCViewModel.userSignedOut(apiService: Service.shared)
+        switch signOutResult {
+        case .success( _):
             HomeVCCoordinator.shared.presentLoginViewController()
+        case .failure(let failure):
+            showAlert(withTitle: "Oops!", withMessage: failure.errorDescription ?? "Could not sign you out")
         }
     }
     
@@ -45,7 +49,9 @@ class HomeViewController: UIViewController {
         let cancelButtonAction = UIAlertAction(title: "Cancel", style: .destructive)
         let saveSubjectButton = UIAlertAction(title: "Save", style: .default) { alertAction in
             if let tf = alertController.textFields?.first{
+                
                 if tf.text?.count ?? 0 > 0 {
+                    
                     guard let subject = tf.text else { return}
                     guard let uid = Auth.auth().currentUser?.uid else {return}
                     let now = Date()
@@ -53,12 +59,13 @@ class HomeViewController: UIViewController {
                     formatter.timeZone = TimeZone.current
                     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     let dateString = formatter.string(from: now)
-                    ServiceEndPoints.SUBJECTS_REF.child(uid).childByAutoId().updateChildValues(["subject": subject,"timeAdded": dateString]) { error , ref in
+                    ServiceEndPoints.SUBJECTS_REF.child(uid).childByAutoId().updateChildValues(["subject": subject,"timeAdded": dateString]) { [weak self]error , ref in
                         if error != nil{
                             print("error saving subject")
                             return
                         }
-                        print("Successfuly saved subject")
+                        self?.showAlert(withTitle: "Success", withMessage: "Subject successfully added!")
+                        self?.refresh(HomeViewController.self)
                     }
                 }
             }
@@ -71,25 +78,10 @@ class HomeViewController: UIViewController {
     
     @objc func refresh(_ sender: AnyObject) {
        // Code to refresh table view
-        var listArray : [String] = []
-        ServiceEndPoints.SUBJECTS_REF.observeSingleEvent(of: .value) { snapshot in
-            for childSnap in snapshot.children.allObjects {
-                let snap = childSnap as! DataSnapshot
-                guard let dictonaries = (snap.value as? NSDictionary) else {return}
-                for dic in dictonaries {
-                    guard let diction = dictonaries[dic.key as Any] as? [String:Any] else {continue}
-                    for (key,val) in diction {
-                        if key == "subject" {
-                            listArray.append(val as! String)
-                        }
-                    }
-                }
-            }
-            self.subjects = listArray
-            listArray.removeAll()
+        homeVCViewModel.prepareSubjectsDataAndReturnIt { subjects in
+            self.subjects = subjects
             self.refreshControl.endRefreshing()
         }
-        
     }
     
     // MARK: - Helper functions
@@ -159,5 +151,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        HomeVCCoordinator.shared.goToSwiftUIScreen()
     }
 }
