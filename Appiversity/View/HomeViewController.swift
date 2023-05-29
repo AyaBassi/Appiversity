@@ -7,25 +7,32 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
+let DB_REF = Database.database().reference()
+let SUBJECTS_REF = DB_REF.child("subjects")
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
     
-    let viewTitle = "Subjests"
+    let viewTitle = "Subjects"
     let homeVCViewModel = HomeVCViewModel()
+    let refreshControl = UIRefreshControl()
     let tableView = UITableView()
     
     // MARK: - Lifecycle
+    var subjects:[String] = []{
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfUserIsLoggedIn()
+
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
+
     
     // MARK: - Selectors
     
@@ -36,7 +43,59 @@ class HomeViewController: UIViewController {
     }
     
     @objc func handleAddSubjectButtonTapped (){
-        print("1234")
+        let alertController = UIAlertController(title: "Add a Subject", message: "", preferredStyle: .alert)
+        alertController.addTextField { textfield in
+            textfield.placeholder = "Enter a subject..."
+        }
+        
+        let cancelButtonAction = UIAlertAction(title: "Cancel", style: .destructive)
+        let saveSubjectButton = UIAlertAction(title: "Save", style: .default) { alertAction in
+            if let tf = alertController.textFields?.first{
+                if tf.text?.count ?? 0 > 0 {
+                    guard let subject = tf.text else { return}
+                    guard let uid = Auth.auth().currentUser?.uid else {return}
+                    let now = Date()
+                    let formatter = DateFormatter()
+                    formatter.timeZone = TimeZone.current
+                    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let dateString = formatter.string(from: now)
+                    SUBJECTS_REF.child(uid).childByAutoId().updateChildValues(["subject": subject,"timeAdded": dateString]) { error , ref in
+                        if error != nil{
+                            print("error saving subject")
+                            return
+                        }
+                        print("Successfuly saved subject")
+                    }
+                }
+            }
+        }
+        alertController.addAction(cancelButtonAction)
+        alertController.addAction(saveSubjectButton)
+        alertController.preferredAction = saveSubjectButton
+        self.present(alertController, animated: true)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        var listArray : [String] = []
+        SUBJECTS_REF.observeSingleEvent(of: .value) { snapshot in
+            for childSnap in snapshot.children.allObjects {
+                let snap = childSnap as! DataSnapshot
+                guard let dictonaries = (snap.value as? NSDictionary) else {return}
+                for dic in dictonaries {
+                    guard let diction = dictonaries[dic.key as Any] as? [String:Any] else {continue}
+                    for (key,val) in diction {
+                        if key == "subject" {
+                            listArray.append(val as! String)
+                        }
+                    }
+                }
+            }
+            self.subjects = listArray
+            listArray.removeAll()
+            self.refreshControl.endRefreshing()
+        }
+        
     }
     
     // MARK: - Helper functions
@@ -56,6 +115,8 @@ class HomeViewController: UIViewController {
         configureSignOutButton()
         configureAddSubjectButton()
         configureTableView()
+        configureRefresh()
+        refresh(self)
     }
     
     func configureViewSetting(){
@@ -75,6 +136,12 @@ class HomeViewController: UIViewController {
                                             action: #selector(handleAddSubjectButtonTapped))
         self.navigationItem.rightBarButtonItem = addSubjectButton
     }
+    
+    func configureRefresh(){
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
@@ -87,12 +154,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return subjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "hello"
+        cell.textLabel?.text = subjects[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
