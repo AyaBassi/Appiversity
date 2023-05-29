@@ -141,7 +141,6 @@ class RegistrationViewController: UIViewController {
         squareAgreementButton.setImage(UIImage(systemName: result.systemImageName)?.withTintColor(result.colorOfCheckBox, renderingMode: .alwaysOriginal), for: .normal)
     }
     
-    
     @objc private func handleTermsOfServiceTapped() {
         print("handleTermsOfServiceTapped")
         
@@ -192,5 +191,4 @@ class RegistrationViewController: UIViewController {
         alreadyHaveAnAccountButton.centerX(inView: view)
         alreadyHaveAnAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
         }
-
 }

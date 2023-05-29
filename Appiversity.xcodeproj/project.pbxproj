@@ -18,6 +18,7 @@
 		F35204D32A20E2E60039ADE3 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D22A20E2E60039ADE3 /* RegistrationViewModel.swift */; };
 		F35204D52A20F4600039ADE3 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */; };
 		F35204D72A2114C50039ADE3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35204D62A2114C50039ADE3 /* Service.swift */; };
+		F39C0BB32A24CAD400FEBC68 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C0BB22A24CAD400FEBC68 /* NetworkError.swift */; };
 		F3AFB4552A22ACF800803AEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AFB4542A22ACF800803AEB /* HomeViewController.swift */; };
 		F3AFB4572A22AED400803AEB /* HomeVCCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AFB4562A22AED400803AEB /* HomeVCCoordinator.swift */; };
 		F3B08C3D2A237C1F00E813E2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B08C3C2A237C1F00E813E2 /* LoginViewModel.swift */; };
@@ -38,6 +39,8 @@
 		F3DA66052A1BA35500DA81E6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA66042A1BA35500DA81E6 /* MainCoordinator.swift */; };
 		F3DA66072A1BA38400DA81E6 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA66062A1BA38400DA81E6 /* CoordinatorProtocol.swift */; };
 		F3DA66092A1BBF7200DA81E6 /* LoginVCCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA66082A1BBF7200DA81E6 /* LoginVCCoordinator.swift */; };
+		F3F9D3802A24B8FB00A5F66E /* ServiceEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F9D37F2A24B8FB00A5F66E /* ServiceEndPoints.swift */; };
+		F3F9D3842A24BF4900A5F66E /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F9D3832A24BF4900A5F66E /* LoginViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,7 @@
 		F35204D22A20E2E60039ADE3 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
 		F35204D62A2114C50039ADE3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		F39C0BB22A24CAD400FEBC68 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F3AFB4542A22ACF800803AEB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3AFB4562A22AED400803AEB /* HomeVCCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCCoordinator.swift; sourceTree = "<group>"; };
 		F3B08C3C2A237C1F00E813E2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 		F3DA66042A1BA35500DA81E6 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F3DA66062A1BA38400DA81E6 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		F3DA66082A1BBF7200DA81E6 /* LoginVCCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCCoordinator.swift; sourceTree = "<group>"; };
+		F3F9D37F2A24B8FB00A5F66E /* ServiceEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEndPoints.swift; sourceTree = "<group>"; };
+		F3F9D3832A24BF4900A5F66E /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +199,7 @@
 			children = (
 				F3DA65E12A1B759E00DA81E6 /* AppiversityTests.swift */,
 				F35204D42A20F4600039ADE3 /* RegistrationViewModelTests.swift */,
+				F3F9D3832A24BF4900A5F66E /* LoginViewModelTests.swift */,
 			);
 			path = AppiversityTests;
 			sourceTree = "<group>";
@@ -211,6 +218,8 @@
 			children = (
 				F3B08C402A238BCC00E813E2 /* ServiceProtocol.swift */,
 				F35204D62A2114C50039ADE3 /* Service.swift */,
+				F3F9D37F2A24B8FB00A5F66E /* ServiceEndPoints.swift */,
+				F39C0BB22A24CAD400FEBC68 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -426,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F9D3802A24B8FB00A5F66E /* ServiceEndPoints.swift in Sources */,
 				F3DA65CF2A1B759A00DA81E6 /* LoginViewController.swift in Sources */,
 				F35204BF2A1E357A0039ADE3 /* RegistrationVCCoordinator.swift in Sources */,
 				F3DA66092A1BBF7200DA81E6 /* LoginVCCoordinator.swift in Sources */,
@@ -443,6 +453,7 @@
 				F3DA66032A1B9DE400DA81E6 /* Extensions.swift in Sources */,
 				F3AFB4552A22ACF800803AEB /* HomeViewController.swift in Sources */,
 				F3B08C432A23ACEB00E813E2 /* BookModel.swift in Sources */,
+				F39C0BB32A24CAD400FEBC68 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F9D3842A24BF4900A5F66E /* LoginViewModelTests.swift in Sources */,
 				F35204D52A20F4600039ADE3 /* RegistrationViewModelTests.swift in Sources */,
 				F3DA65E22A1B759E00DA81E6 /* AppiversityTests.swift in Sources */,
 			);

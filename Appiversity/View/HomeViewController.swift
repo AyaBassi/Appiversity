@@ -7,10 +7,8 @@
 
 import UIKit
 import FirebaseAuth
-import Firebase
+import FirebaseDatabase
 
-let DB_REF = Database.database().reference()
-let SUBJECTS_REF = DB_REF.child("subjects")
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
@@ -20,20 +18,18 @@ class HomeViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     let tableView = UITableView()
     
-    // MARK: - Lifecycle
     var subjects:[String] = []{
         didSet{
             self.tableView.reloadData()
         }
     }
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfUserIsLoggedIn()
-
     }
 
-    
     // MARK: - Selectors
     
     @objc func handleSignOutButtonTapped(){
@@ -44,9 +40,7 @@ class HomeViewController: UIViewController {
     
     @objc func handleAddSubjectButtonTapped (){
         let alertController = UIAlertController(title: "Add a Subject", message: "", preferredStyle: .alert)
-        alertController.addTextField { textfield in
-            textfield.placeholder = "Enter a subject..."
-        }
+        alertController.addTextField { textfield in textfield.placeholder = "Enter a subject..." }
         
         let cancelButtonAction = UIAlertAction(title: "Cancel", style: .destructive)
         let saveSubjectButton = UIAlertAction(title: "Save", style: .default) { alertAction in
@@ -59,7 +53,7 @@ class HomeViewController: UIViewController {
                     formatter.timeZone = TimeZone.current
                     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     let dateString = formatter.string(from: now)
-                    SUBJECTS_REF.child(uid).childByAutoId().updateChildValues(["subject": subject,"timeAdded": dateString]) { error , ref in
+                    ServiceEndPoints.SUBJECTS_REF.child(uid).childByAutoId().updateChildValues(["subject": subject,"timeAdded": dateString]) { error , ref in
                         if error != nil{
                             print("error saving subject")
                             return
@@ -78,7 +72,7 @@ class HomeViewController: UIViewController {
     @objc func refresh(_ sender: AnyObject) {
        // Code to refresh table view
         var listArray : [String] = []
-        SUBJECTS_REF.observeSingleEvent(of: .value) { snapshot in
+        ServiceEndPoints.SUBJECTS_REF.observeSingleEvent(of: .value) { snapshot in
             for childSnap in snapshot.children.allObjects {
                 let snap = childSnap as! DataSnapshot
                 guard let dictonaries = (snap.value as? NSDictionary) else {return}

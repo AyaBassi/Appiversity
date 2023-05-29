@@ -11,6 +11,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // MARK: - PROPERTIES
+    let loginModelView = LoginViewModel()
     lazy var loginButtonTitle:String? = "Log in"
     
     lazy var topPaddingForEmailAndPasswordStack = view.frame.height / 7
@@ -89,20 +90,25 @@ class LoginViewController: UIViewController {
     
     // MARK: - Selectors
     
-    
     @objc func handleLogin() {
-        // log user in
-        Task{
-            guard let user = await LoginViewModel().logUserIn(withEmail: emailTextField.text,
-                                                           password: passwordTextField.text,
-                                                              apiService: Service.shared) else {return}
-            print("user Id: ",user.uid)
+        if loginModelView.isValidLogin(withEmail: emailTextField.text, password: passwordTextField.text){
+            Task{
+                let result = await LoginViewModel().logUserIn(withEmail: emailTextField.text, password: passwordTextField.text, apiService: Service.shared)
+                
+                switch result {
+                case .success(let user):
+                    guard let email = user?.email else {return}
+                    print(email)
+                    guard let vc = HomeVCCoordinator.shared.navigationController?.viewControllers.first as? HomeViewController else {return}
+                    vc.configureHomeView()
+                    LoginVCCoordinator.shared.dismiss()
+                case .failure(let customError):
+                    showAlert(withErrorDescription: customError.errorDescription ?? "Something went wrong" )
+                }
+            }
+        } else {
+            print("In correct Login format please try again with correct details!")
         }
-        
-
-        guard let vc = HomeVCCoordinator.shared.navigationController?.viewControllers.first as? HomeViewController else {return}
-        vc.configureHomeView()
-        LoginVCCoordinator.shared.dismiss()
     }
     
     @objc func handleDontHaveAccountButton(){
@@ -146,10 +152,6 @@ class LoginViewController: UIViewController {
             dontHaveAccountButton.centerX(inView: view)
             dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
         }
-    
-    deinit{
-        print("Login is Deinit")
-    }
 }
 
 

@@ -29,7 +29,7 @@ class Service : ServiceProtocol{
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             return result
-        }catch {
+        }catch (let error){
             print("error signing user in\(error.localizedDescription)")
             throw error
         }
