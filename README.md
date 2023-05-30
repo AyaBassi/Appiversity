@@ -26,4 +26,4 @@ Units tests for success and failure situations.
 
 |Appiversity Screen|DetailScreen|
 |---|---|
-|<img src="(https://github.com/AyaBassi/Appiversity/assets/33694282/08e10423-4981-4814-ab87-7d5d2b92fd6f" width="300" height="500"> |<img src="" width="300" height="500"> |
+|<img src="https://github.com/AyaBassi/Appiversity/assets/33694282/08e10423-4981-4814-ab87-7d5d2b92fd6f" width="300" height="500"> |<img src="" width="300" height="500"> |
